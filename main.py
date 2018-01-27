@@ -6,6 +6,10 @@ from kivy.properties import ObjectProperty
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
+from kivy.config import Config
+
+Config.set('graphics', 'width', '800')
+Config.set('graphics', 'height', '256')
 
 netprice = ''
 
