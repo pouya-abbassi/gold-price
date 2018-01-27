@@ -1,6 +1,6 @@
 # gold-price
 
-This application helps you get current gold price (in Rials/10) from these gold dealers.
+This application helps you get current gold price (in Rials/10) from these gold dealers:
   - talanews.com
   - iranshemsh.com
   - parsisgold.com
@@ -16,19 +16,18 @@ python main.py
 ```
 
 ### Screenshot
-[![N|Solid](https://raw.githubusercontent.com/pouya-abbassi/gold-price/master/Screenshot.png)](https://raw.githubusercontent.com/pouya-abbassi/gold-price/master/Screenshot.png)
-
+[![Gold Price - ScreenShot](https://raw.githubusercontent.com/pouya-abbassi/gold-price/master/Screenshot.gif)](https://raw.githubusercontent.com/pouya-abbassi/gold-price/master/Screenshot.gif)
 
 ### Todos
  - Better UI
  - Better UX
 
 ## License
-[WTFPL]
+[![wtfpl badge](http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-2.png)](http://www.wtfpl.net)
+
 **Free Software, Hell Yeah!**
 
    [python]: <https://www.python.org/>
    [kivy]: <https://kivy.org/#home>
    [urllib]: <https://docs.python.org/3/library/urllib.html>
-   [WTFPL]: <https://raw.githubusercontent.com/pouya-abbassi/gold-price/master/LICENSE>
 
