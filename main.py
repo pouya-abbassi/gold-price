@@ -7,6 +7,8 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 
+netprice = ''
+
 class MainWidget(GridLayout):
     label_widget = ObjectProperty()
     def __init__(self, **kwargs):
@@ -24,6 +26,7 @@ class GoldPriceApp(App):
         return MainWidget()
 
 def talanews():
+    global netprice
     page = urlopen('http://www.talanews.com/fa/%D9%82%D9%8A%D9%85%D8%AA-%D8%A2%D9%86%D9%84%D8%A7%D9%8A%D9%86-%D8%A7%D9%85%D8%B1%D9%88%D8%B2-%D8%B7%D9%84%D8%A7%D8%8C-%D8%B3%DA%A9%D9%87-%D9%88-%D8%A7%D8%B1%D8%B2-%D8%AF%D8%B1-%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1.html')
     for each in page:
         if '<span style="width:65%;float:right;text-align:left;">یک گرم طلای 24 عیار:' in each.decode():
@@ -34,9 +37,11 @@ def talanews():
             ret += '\n1g 21K GoldBar:        ' + each.decode().split('یک گرم طلای 21 عیار:&nbsp;&nbsp;</span><span class="highlight-2">')[1].split('</span>')[0].replace(',','')
             ret += '\n1g 22K GoldBar:        ' + each.decode().split('یک گرم طلای 22 عیار:&nbsp;&nbsp;</span><span class="highlight-2">')[1].split('</span>')[0].replace(',','')
             ret += '\n1g 24K GoldBar:        ' + each.decode().split('یک گرم طلای 24 عیار:&nbsp;&nbsp;</span><span class="highlight-2">')[1].split('</span>')[0].replace(',','')
+            netprice = int(each.decode().split('یک گرم طلای 24 عیار:&nbsp;&nbsp;</span><span class="highlight-2">')[1].split('</span>')[0].replace(',',''))
             return ret
 
 def iranshemsh():
+    global netprice
     price = []
     page = urlopen('http://webtools.khaneweb.ir/application/core.webtools.gold/components/service_proxy.svc/GetCurrentGoldValue18')
     for each in page:
@@ -54,9 +59,11 @@ def iranshemsh():
     ret += '\n0.5g  24K GoldBar:        ' + str(price[4])
     ret += '\n0.75g 24K GoldBar:        ' + str(price[5])
     ret += '\n1g    24K GoldBar:        ' + str(price[6])
+    ret += '\n\n10g   24K fee    :        ' + str(netprice-price[6])
     return ret
 
 def parsis():
+    global netprice
     price = []
     pages = ['http://parsisgold.com/productdetails.aspx?itemid=4',
             'http://parsisgold.com/productdetails.aspx?itemid=5',
@@ -73,6 +80,8 @@ def parsis():
     ret += '\n5g   24K GoldBar:        ' + str(price[2])
     ret += '\n10g  24K GoldBar:        ' + str(price[3])
     ret += '\n1oz  24K GoldBar:        ' + str(price[4])
+    ret += '\n\n1g   24K fee    :        ' + str(netprice-int(price[0]))
+    ret += '\n1oz   24K fee   :        ' + str(int((netprice*31.1)-int(price[4])))
     return ret
 
 if __name__ == '__main__':
