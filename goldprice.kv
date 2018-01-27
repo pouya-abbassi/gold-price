@@ -2,7 +2,8 @@
 #:import f bidi.algorithm.get_display
 
 <Label>:
-    font_name: 'Vazir.ttf'
+    font_name: 'ProggyTiny.ttf'
+    font_size: 16
 
 <MainWidget>:
     talanews: talanews
@@ -16,14 +17,17 @@
         size_hint: None, None
         Label:
             text_size: self.size
+            font_size: 32
             halign: 'left'
             valign: 'middle'
+            color: 0, 0.5, 0, 1
             text: 'PouyaCode.net'
         Button:
+            font_name: 'Vazir.ttf'
             size: self.width, 50
             size_hint: None, None
             on_press: root.refresh()
-            text: f(a('ریفرش'))
+            text: 'Refresh'
 
     BoxLayout:
         size: root.width-20, 50
@@ -35,7 +39,9 @@
                 pos: self.pos
                 size: self.size
         Label:
-            text: f(a('طلانیوز'))
+            font_name: 'Vazir.ttf'
+            color: 1, 0.8, 0.2, 1
+            text: 'talanews.com'
         Label:
             canvas.before:
                 Color:
@@ -43,9 +49,13 @@
                 Rectangle:
                     pos: self.pos
                     size: self.size
-            text: f(a('ایران شمش'))
+            font_name: 'Vazir.ttf'
+            color: 1, 0.8, 0.2, 1
+            text: 'iranshemsh.com'
         Label:
-            text: f(a('طلای پارسیس'))
+            font_name: 'Vazir.ttf'
+            color: 1, 0.8, 0.2, 1
+            text: 'parsisgold.com'
     BoxLayout:
         canvas.before:
             Color:
