@@ -1,0 +1,70 @@
+#:import a arabic_reshaper.reshape
+#:import f bidi.algorithm.get_display
+
+<Label>:
+    font_name: 'Vazir.ttf'
+
+<MainWidget>:
+    talanews: talanews
+    iranshemsh: iranshemsh
+    parsisgold: parsisgold
+    rows: 3
+    cols: 1
+    padding: 10
+    BoxLayout:
+        size: root.width-20, 50
+        size_hint: None, None
+        Label:
+            text_size: self.size
+            halign: 'left'
+            valign: 'middle'
+            text: 'PouyaCode.net'
+        Button:
+            size: self.width, 50
+            size_hint: None, None
+            on_press: root.refresh()
+            text: f(a('ریفرش'))
+
+    BoxLayout:
+        size: root.width-20, 50
+        size_hint: None, None
+        canvas.before:
+            Color:
+                rgba: 0.5, 0.5, 0.5, 0.5
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text: f(a('طلانیوز'))
+        Label:
+            canvas.before:
+                Color:
+                    rgba: 0.5, 0.5, 0.5, 0.1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: f(a('ایران شمش'))
+        Label:
+            text: f(a('طلای پارسیس'))
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 0.5, 0.5, 0.5, 0.6
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            id: talanews
+            text: 'talanews.com'
+        Label:
+            id: iranshemsh
+            canvas.before:
+                Color:
+                    rgba: 0.5, 0.5, 0.5, 0.1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            text: 'iranshemsh.com'
+        Label:
+            id: parsisgold
+            text: 'parsisgold.com'
