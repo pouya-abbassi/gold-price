@@ -1,5 +1,3 @@
-from arabic_reshaper import reshape
-from bidi.algorithm import get_display
 from urllib.request import urlopen
 from kivy.app import App
 from kivy.properties import ObjectProperty
@@ -17,9 +15,6 @@ class MainWidget(GridLayout):
     label_widget = ObjectProperty()
     def __init__(self, **kwargs):
         super(MainWidget, self).__init__(**kwargs)
-        self.talanews.text = 'Click on Refresh button.'
-        self.iranshemsh.text = 'Click on Refresh button.'
-        self.parsisgold.text = 'Click on Refresh button.'
     def refresh(self):
         self.talanews.text = talanews()
         self.iranshemsh.text = iranshemsh()
