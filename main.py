@@ -80,7 +80,7 @@ def parsis():
             if '<span id="ctl00_lblPrice" class="ProductPrice">' in each.decode():
                 price += [each.decode().split('<span id="ctl00_lblPrice" class="ProductPrice">')[1].split('</span>')[0].replace(',','')]
     ret = '1g   24K GoldBar:        ' + str(price[0])
-    ret += '\n0.5g 24K GoldBar:        ' + str(price[1])
+    ret += '\n2.5g 24K GoldBar:        ' + str(price[1])
     ret += '\n5g   24K GoldBar:        ' + str(price[2])
     ret += '\n10g  24K GoldBar:        ' + str(price[3])
     ret += '\n1oz  24K GoldBar:        ' + str(price[4])
